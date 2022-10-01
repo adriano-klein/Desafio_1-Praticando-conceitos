@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 1.5rem;
+
+  position: absolute;
+  width: 736px;
+  height: 287px;
+  left: calc(50% - 736px/2);
+  top: 291px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px;
+}
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  color: var(--blue);
+  font-weight: bold;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.18rem;
+  width: 10rem
+}
+
+.todo > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 1.5rem;
+  height: 1rem;
+  font-size: 0.75rem
+}
+
+.done {
+  display: flex;
+  flex-direction: row;
+  color: var(--blue);
+  font-weight: bold;
+  align-items: center;
+  gap: 0.5rem;
+  height: 1.18rem;
+}
+
+.done > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  padding: 0.5rem;
+  border-radius: 8px;
+  width: 1.5rem;
+  height: 1rem;
+  font-size: 0.75rem
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  height: 18rem;
+  margin-top: 4rem
+}
+
+.tasks img {
+  margin-bottom: 1rem
+}
+
+.tasks strong, p{
+  color: var(--gray-300)
+}
