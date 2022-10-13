@@ -6,8 +6,8 @@ import { Tasks } from './Tasks';
 export function TodoInput () {
   const [todos, setTodos] = useState([''])
   const [newTodoText, setNewTodoText] = useState('')
-
   const isTodoEmpty = todos.length === 1;
+
   function handleNewTodoChange(event: FormEvent){
     const target = event.target as HTMLInputElement;
     setNewTodoText(target.value);
