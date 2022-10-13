@@ -1,7 +1,6 @@
 .container {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   padding: 16px;
   width: 736px;
   height:72px;
@@ -15,13 +14,19 @@
 .container p {
   color: var(--gray-100);
   margin-left: 0.7rem;
+  font-size: 0.87rem
 }
 
-.container svg {
+button {
+  border: none;
+  background-color: var(--gray-500)
+}
+
+.container button svg {
   color: var(--gray-100)
 }
 
-.container svg:hover{
+.container button svg:hover{
   color: var(--danger);
   cursor: pointer;
   transition: color 0.2s

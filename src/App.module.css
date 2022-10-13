@@ -1,0 +1,12 @@
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  gap: 1.5rem;
+
+  position: absolute;
+  width: 736px;
+  height: 287px;
+  left: calc(50% - 736px/2);
+  top: 291px;
+}

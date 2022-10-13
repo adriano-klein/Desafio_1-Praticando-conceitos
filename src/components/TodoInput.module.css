@@ -6,7 +6,7 @@
 }
 
 .container form input {
-  width: 736px;
+  width: 46rem;
   height: 3.37rem;
   border: solid 1px var(--gray-700);
   background-color: var(--gray-500);
@@ -36,8 +36,11 @@
   transition: background-color 0.2s
 }
 
+.container form button[type="submit"]:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
 .container button:hover{
   background-color: var(--blue);
   cursor: pointer;
-
 }
