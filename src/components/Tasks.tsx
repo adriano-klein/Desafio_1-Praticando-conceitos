@@ -7,15 +7,15 @@ import { TodoDone } from './TodoDone'
 
 interface TodoProps{
   description: string;
-  id?: string;
-  key:string;
+  id: string;
+  key: string;
   done: boolean;
 }
  
 export function Tasks(){
   const [todos, setTodos] = useState<TodoProps[]>([])
 
-  function createNewTodo(newTodo: TodoProps[]){
+  function createNewTodo(newTodo: TodoProps){
     setTodos([...todos, newTodo]);
   }
 
@@ -65,11 +65,9 @@ export function Tasks(){
         <div>
           {isEmpty ? <TodoEmpty /> : 
           todos.map(todo => {
-            console.log(typeof(todo))
             if (todo.done === false) {
              return <Todo 
-              todo={todo}
-              id={todo['id']} 
+              todo={todo} 
               key={todo['id']} 
               onDoneTodo={finishedTodo} 
               onDeleteTodo={todoToBeDeleted}
@@ -81,8 +79,7 @@ export function Tasks(){
           todos.map(todo => {
             if (todo.done === true) {
              return <TodoDone 
-              todo={todo} 
-              id={todo['id']} 
+              todo={todo}  
               key={todo['id']} 
               onDeleteTodo={todoToBeDeleted}/>
             }
