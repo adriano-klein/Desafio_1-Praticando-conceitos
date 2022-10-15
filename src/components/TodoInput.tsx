@@ -18,7 +18,7 @@ export function TodoInput({createNewTodo}: any) {
     const newTodo = {
       id: uuidv4(),
       description: newTodoText,
-      done: false
+      done: false,
     }
     createNewTodo(newTodo)
     setNewTodoText('')

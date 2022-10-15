@@ -12,35 +12,22 @@
 }
 
 .container p {
-  color: var(--gray-100);
+  color: var(--gray-300);
   margin-left: 0.7rem;
-  font-size: 0.87rem
+  font-size: 0.87rem;
+  text-decoration: line-through;
 }
 
 button {
   border: none;
-  background-color: var(--gray-500);
+  background-color: var(--gray-500)
 }
 
 .container button svg {
-  color: var(--gray-100);
-  box-sizing: content-box;
-  padding: 4px;
-}
-
-.container button svg{
-  color: var(--blue);
+  color: var(--gray-300)
 }
 
 .container button svg:hover{
-  color: var(--blueDark);
-}
-
-.containerButton button svg{
-  color: var(--gray-300);
-}
-
-.containerButton button svg:hover{
   color: var(--danger);
   cursor: pointer;
   background-color: var(--gray-400);
@@ -56,3 +43,11 @@ button {
   align-items: center;
 }
 
+.circle svg {
+  color: var(--purpleDark);
+  transition: color 0.2s
+}
+
+.circle svg:hover{
+  color: var(--purple);
+}

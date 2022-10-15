@@ -1,34 +1,44 @@
 import style from './Todo.module.css';
 import { Trash, Circle } from 'phosphor-react';
 interface DescriptionProps{
-  description: {
+  todo: {
     description: string;
     id: string;
     key:string;
     done: boolean
   }
-  onDeleteComment: (id: string) => void;
+  onDoneTodo: (id: string) => void;
+  onDeleteTodo: (id: string) => void;
 }
 
 
-export function Todo({description, onDeleteComment}: DescriptionProps){
-
+export function Todo({todo, onDoneTodo, onDeleteTodo}: DescriptionProps){
   function handleDeleteTodo(){
-    onDeleteComment(description['id'])
+    onDeleteTodo(todo['id']);
+  }
+
+  function handleDoneTodo(){
+    onDoneTodo(todo['id'])
   }
 
   return(
     <div className={style.container}>
-      <div className={style.circle}>
+      <button 
+        className={style.circle}
+        onClick={handleDoneTodo}
+        type='submit'
+        >
         <Circle size={24}/>
-        <p>{description['description']}</p>
-      </div>
-      <button
-      onClick={handleDeleteTodo}
-      type='submit'
-      >
-        <Trash size={24}/>
+        <p>{todo['description']}</p>
       </button>
+      <div className={style.containerButton}>
+        <button
+        onClick={handleDeleteTodo}
+        type='submit'
+        >
+          <Trash size={24}/>
+        </button>
+      </div>
     </div>
   )
 }
