@@ -3,6 +3,7 @@ import { TodoInput } from './TodoInput';
 import { useState } from 'react';
 import { Todo } from './Todo';
 import { TodoEmpty } from './TodoEmpty';
+import { TodoDone } from './TodoDone'
 
 interface TodoProps{
   description: string;
@@ -10,7 +11,7 @@ interface TodoProps{
   key:string;
   done: boolean;
 }
-
+ 
 export function Tasks(){
   const [todos, setTodos] = useState<TodoProps[]>([])
 
@@ -18,18 +19,31 @@ export function Tasks(){
     setTodos([...todos, newTodo]);
   }
 
+  // Função para mudar o status da atividade para done = true
+  function finishedTodo(id: string){
+    const changeStatusToTrue: TodoProps[] = [];
 
-  function deleteTodo(id: string){
-    const todosWithoutDeletedTodo = todos.filter(todo => {
-      return todo[id].done = true
-    });
-    setTodos(todosWithoutDeletedTodo);
+    todos.map(todo => {
+      if(todo.id === id){
+        todo.done = true
+      }
+      changeStatusToTrue.push(todo)
+    })
+    setTodos(changeStatusToTrue)
+  }
+
+  // Função para deletar uma atividade
+  function todoToBeDeleted(id: string){
+    const todosFiltered = todos.filter(todo => {
+      return todo.id !== id;
+    })
+    setTodos(todosFiltered);
   }
 
   const isEmpty = todos.length === 0
   
   // TODO: contar as atividades feitas
-  const deletedTodo = todos.filter(todo => {
+  const doneTodo = todos.filter(todo => {
     return todo.done === true
   })
   
@@ -45,14 +59,32 @@ export function Tasks(){
 
           <div className={style.done}>
             <span>Concluídas</span>
-            <div> {deletedTodo.length} de {todos.length}</div>
+            <div> {doneTodo.length} de {todos.length}</div>
           </div>
         </div>
         <div>
           {isEmpty ? <TodoEmpty /> : 
           todos.map(todo => {
+            console.log(typeof(todo))
             if (todo.done === false) {
-             return <Todo description={todo} id={todo['id']} key={todo['id']} onDeleteComment={deleteTodo}/>
+             return <Todo 
+              todo={todo}
+              id={todo['id']} 
+              key={todo['id']} 
+              onDoneTodo={finishedTodo} 
+              onDeleteTodo={todoToBeDeleted}
+            />
+            }
+          })
+        }
+        { 
+          todos.map(todo => {
+            if (todo.done === true) {
+             return <TodoDone 
+              todo={todo} 
+              id={todo['id']} 
+              key={todo['id']} 
+              onDeleteTodo={todoToBeDeleted}/>
             }
           })
         }
